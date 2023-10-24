@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<robot name="xis_kuka">
+    <link name="world" />
+    <joint name="fix_joint" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.038926 0.14666 0.038711" rpy="0 0 0" />
+            <mass value="5.8879" />
+            <inertia ixx="0.037229" ixy="0.00081566" ixz="-4.2093E-05" iyy="0.037229" iyz="-4.2093E-05" izz="0.067975" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="link1">
+        <inertial>
+            <origin xyz="0.055474 0.0019078 0.082225" rpy="0 0 0" />
+            <mass value="2.4011" />
+            <inertia ixx="0.012303" ixy="-0.00064066" ixz="-0.0093653" iyy="0.024564" iyz="-0.0004856" izz="0.016929" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint1" type="revolute">
+        <origin xyz="0.0375 0.14524 0.084" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.14159" upper="3.14159" effort="300" velocity="1" />
+    </joint>
+    <link name="link2">
+        <inertial>
+            <origin xyz="0.0085044 -0.035227 0.13926" rpy="0 0 0" />
+            <mass value="0.91436" />
+            <inertia ixx="0.017632" ixy="2.2762E-05" ixz="-0.0018403" iyy="0.018167" iyz="-8.6035E-05" izz="0.00081686" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint2" type="revolute">
+        <origin xyz="0.15 0 0.16" rpy="0 0 0" />
+        <parent link="link1" />
+        <child link="link2" />
+        <axis xyz="0 1 0" />
+        <limit lower="-1.8" upper="2" effort="300" velocity="1" />
+    </joint>
+    <link name="link3">
+        <inertial>
+            <origin xyz="0.029812 0.0459 0.042503" rpy="0 0 0" />
+            <mass value="1.3101" />
+            <inertia ixx="0.0019297" ixy="-8.0363E-05" ixz="-0.00085045" iyy="0.0067673" iyz="-0.00013415" izz="0.0062137" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint3" type="revolute">
+        <origin xyz="0.041011 -0.02 0.34719" rpy="0 0 0" />
+        <parent link="link2" />
+        <child link="link3" />
+        <axis xyz="0 1 0" />
+        <limit lower="-2.0" upper="1.2" effort="300" velocity="1" />
+    </joint>
+    <link name="link4">
+        <inertial>
+            <origin xyz="0.099197 4.1012E-09 0.012386" rpy="0 0 0" />
+            <mass value="0.6283" />
+            <inertia ixx="0.00060709" ixy="-1.907E-10" ixz="-0.00019626" iyy="0.0020116" iyz="-1.7578E-10" izz="0.0021543" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link4.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link4.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint4" type="revolute">
+        <origin xyz="0.19388 0.048 0.069558" rpy="0 0 0" />
+        <parent link="link3" />
+        <child link="link4" />
+        <axis xyz="-0.99229 0 -0.1239" />
+        <limit lower="-3.14159" upper="3.14159" effort="300" velocity="1" />
+    </joint>
+    <link name="link5">
+        <inertial>
+            <origin xyz="0.035198 -0.0028374 -0.10495" rpy="0 0 0" />
+            <mass value="0.37992" />
+            <inertia ixx="0.00092038" ixy="-4.5116E-06" ixz="0.00022914" iyy="0.0010045" iyz="1.3453E-05" izz="0.00031398" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link5.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link5.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint5" type="revolute">
+        <origin xyz="0.15678 0 0.019577" rpy="0 0 0" />
+        <parent link="link4" />
+        <child link="link5" />
+        <axis xyz="0 -1 0" />
+        <limit lower="-0.15" upper="3.5" effort="300" velocity="1" />
+    </joint>
+    <link name="link6">
+        <inertial>
+            <origin xyz="0.0052032 -2.3749E-12 -0.015515" rpy="0 0 0" />
+            <mass value="0.078327" />
+            <inertia ixx="3.9758E-05" ixy="-2.0567E-07" ixz="-6.2372E-07" iyy="3.2776E-05" iyz="-6.8975E-08" izz="4.1409E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link6.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/link6.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint6" type="revolute">
+        <origin xyz="0.051656 -0.0025 -0.15403" rpy="0 0 0" />
+        <parent link="link5" />
+        <child link="link6" />
+        <axis xyz="0.31797 0 -0.9481" />
+        <limit lower="-3.14159" upper="3.14159" effort="300" velocity="1" />
+    </joint>
+    <link name="gripper_link1">
+        <inertial>
+            <origin xyz="0.016686 0.013884 -0.048356" rpy="0 0 0" />
+            <mass value="0.039201" />
+            <inertia ixx="4.2037E-05" ixy="-2.3802E-06" ixz="1.2708E-05" iyy="4.3626E-05" iyz="6.82E-06" izz="9.1738E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/gripper_link1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/gripper_link1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="gripper_joint1" type="revolute">
+        <origin xyz="0.0092213 -0.040789 -0.0316" rpy="0 0 0" />
+        <parent link="link6" />
+        <child link="gripper_link1" />
+        <axis xyz="-0.94762 0.031978 -0.3178" />
+        <limit lower="0" upper="1.2" effort="1" velocity="1" />
+        <!-- <dynamics damping="1.0e-6" friction="2.0e-1" /> -->
+    </joint>
+    <link name="gripper_link2">
+        <inertial>
+            <origin xyz="0.015812 -0.014147 -0.048572" rpy="0 0 0" />
+            <mass value="0.039201" />
+            <inertia ixx="4.2327E-05" ixy="2.2742E-06" ixz="1.2311E-05" iyy="4.3551E-05" iyz="-7.0657E-06" izz="8.9591E-06" />
+
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/gripper_link2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://xis_kuka/meshes/gripper_link2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="gripper_joint2" type="revolute">
+        <origin xyz="0.011696 0.040789 -0.03077" rpy="0 0 0" />
+        <parent link="link6" />
+        <child link="gripper_link2" />
+        <axis xyz="0.94762 -0.031978 0.3178" />
+        <limit lower="0" upper="1.2" effort="1" velocity="1" />
+        <!-- <dynamics damping="1.0e-6" friction="2.0e-1" /> -->
+    </joint>
+    <transmission name="trans_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint4">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint4_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint5">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint5_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint6">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint6_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_gripper_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="gripper_joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="gripper_joint1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_gripper_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="gripper_joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="gripper_joint2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+            <legacyModeNS>false</legacyModeNS>
+        </plugin>
+    </gazebo>
+
+
+
+    <gazebo>
+        <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+            <arm>
+               <arm_name>arm</arm_name>
+               <palm_link>link6</palm_link>
+               <gripper_link>gripper_link1</gripper_link>
+               <gripper_link>gripper_link2</gripper_link>
+            </arm>
+           <forces_angle_tolerance>100</forces_angle_tolerance>
+           <update_rate>4</update_rate>
+           <grip_count_threshold>4</grip_count_threshold>
+           <max_grip_count>8</max_grip_count>
+           <release_tolerance>0.005</release_tolerance>
+           <disable_collisions_on_attach>false</disable_collisions_on_attach>
+           <contact_topic>__default_topic__</contact_topic>
+    </plugin>
+    </gazebo>
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="link1">
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="link2">
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="link3">
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="link4">
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="link5">
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="link6">
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="gripper_link1">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="gripper_link2">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+</robot>
+
